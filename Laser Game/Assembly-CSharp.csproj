@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Draw_Turret_Prediction.cs" />
+     <Compile Include="Assets\Scripts\Fire_Turret.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Rotate_Turret.cs" />
      <Compile Include="Assets\Scripts\Select_Turret.cs" />
  <Reference Include="UnityEngine.UI">

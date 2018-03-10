@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Rotate_Turret: MonoBehaviour {
 	bool GOGOGO;
+	public bool went;
 	Rigidbody2D m_body;
 	Vector2 currentPos;
 	Select_Turret turret;
+	GameObject manager;
 	[HideInInspector] public float direction;
 	[HideInInspector] public float angle;
 	// Use this for initialization
 	void Start () {
+		went = false;
+		manager = FindObjectOfType<GameManager> ().gameObject;
 		GOGOGO = false;
 		turret = gameObject.GetComponentInParent<Select_Turret>();
 		m_body = GetComponent<Rigidbody2D>();
@@ -25,27 +29,36 @@ public class Rotate_Turret: MonoBehaviour {
 			Debug.Log ("D: " + direction);
 			Debug.Log ("F: " + Mathf.Abs (direction - angle));
 		}
-		if (GOGOGO) {
-			direction = (Mathf.Atan2 (turret.aimLoc.y - currentPos.y, turret.aimLoc.x - currentPos.x)) * Mathf.Rad2Deg;
-			angle = Mathf.MoveTowardsAngle (transform.eulerAngles.z, direction - 90, 90 * Time.deltaTime);
-			m_body.transform.localRotation = Quaternion.Euler (new Vector3 (0f, 0f, angle));
-			if (Mathf.Abs (direction - angle - 90) < .3f) {
-				cancelTurn ();
-			}
+
+		if (manager.GetComponent<GameManager> ().isTurn && !went) {
+			faceDirection ();
 		}
 			
 	}
 
 	void cancelTurn(){
-		GOGOGO = false;
+		went = true;
+		StartCoroutine(WaitOneSecond());
+		GetComponent<Fire_Turret> ().hasFired = false;
 	}
 
-	public void startTurn(){
-		GOGOGO = true;
-	}
+	void faceDirection(){
+		direction = (Mathf.Atan2 (turret.aimLoc.y - currentPos.y, turret.aimLoc.x - currentPos.x)) * Mathf.Rad2Deg;
+		angle = Mathf.MoveTowardsAngle (transform.eulerAngles.z, direction - 90, 90 * Time.deltaTime);
+		m_body.transform.localRotation = Quaternion.Euler (new Vector3 (0f, 0f, angle));
+		if (Mathf.Abs (direction - angle - 90) < .3f) {
+			cancelTurn ();
+		}
 
+	}
+		
 
 	public float getDirection(){
 		return angle;
+	}
+
+	IEnumerator WaitOneSecond()
+	{
+		yield return new WaitForSeconds(1);
 	}
 }
