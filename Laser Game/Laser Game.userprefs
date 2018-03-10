@@ -1,0 +1,35 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Select_Turret.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Select_Turret.cs" Line="29" Column="47" />
+      <File FileName="Assets\Scripts\Rotate_Turret.cs" Line="43" Column="14" />
+      <File FileName="Assets\Scripts\Draw_Turret_Prediction.cs" Line="41" Column="82" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Laser Game" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Select_Turret.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="Laser Game" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <RunToCursorBreakpoint file="C:\Users\danie\LaserGame\Laser Game\Assets\Scripts\Draw_Turret_Prediction.cs" line="15" column="58" />
+      <RunToCursorBreakpoint file="C:\Users\danie\LaserGame\Laser Game\Assets\Scripts\Draw_Turret_Prediction.cs" line="15" column="83" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -50,6 +50,9 @@ TagManager:
   - name: Enemies
     uniqueID: 794417081
     locked: 0
+  - name: Laser
+    uniqueID: 1236773373
+    locked: 0
   - name: Turret Base
     uniqueID: 3866942771
     locked: 0
