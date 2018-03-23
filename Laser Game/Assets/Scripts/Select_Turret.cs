@@ -6,7 +6,7 @@ public class Select_Turret : MonoBehaviour {
 	private bool isSelected;
 	private bool recentlySelected;
 	private bool aimPlaced;
-	GameObject manager;
+	GameManager manager;
 	public Vector2 aimLoc;
 	public GameObject selectTurretPrefab;
 	GameObject selectedTurretCircle;
@@ -14,7 +14,7 @@ public class Select_Turret : MonoBehaviour {
 	GameObject aimCircle;
 	// Use this for initialization
 	void Start () {
-		manager = FindObjectOfType<GameManager> ().gameObject;
+		manager = FindObjectOfType<GameManager> ();
 		aimLoc = new Vector2(transform.position.x,transform.position.y + 1);
 		isSelected = false;
 	}
@@ -40,14 +40,13 @@ public class Select_Turret : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
-		if (!manager.GetComponent<GameManager> ().isTurn && !isSelected) {
-			isSelected = true;
-			recentlySelected = true;
+		if (!manager.isTurn && !isSelected) {
+			select ();
 		} else {
-			isSelected = false;
 			deselect ();
 		}
 	}
+
 
 	void createSquare(){
 		recentlySelected = false;
@@ -58,5 +57,11 @@ public class Select_Turret : MonoBehaviour {
 		GameObject.Destroy (selectedTurretCircle);
 		isSelected = false;
 		GameObject.Destroy (aimCircle);
+	}
+
+	public void select(){
+		isSelected = true;
+		recentlySelected = true;
+		manager.updateSelection (this);
 	}
 }

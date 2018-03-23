@@ -13,7 +13,7 @@ public class Rotate_Turret: MonoBehaviour {
 	[HideInInspector] public float angle;
 	// Use this for initialization
 	void Start () {
-		went = false;
+		went = true;
 		manager = FindObjectOfType<GameManager> ().gameObject;
 		GOGOGO = false;
 		turret = gameObject.GetComponentInParent<Select_Turret>();
@@ -38,8 +38,8 @@ public class Rotate_Turret: MonoBehaviour {
 
 	void cancelTurn(){
 		went = true;
-		StartCoroutine(WaitOneSecond());
 		GetComponent<Fire_Turret> ().hasFired = false;
+		StartCoroutine(WaitOneSecond());
 	}
 
 	void faceDirection(){
